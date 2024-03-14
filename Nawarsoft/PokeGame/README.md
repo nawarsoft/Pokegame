@@ -9,6 +9,7 @@ Adds pokemon image and data into a product and listing pages
 - Unzip the zip file in `app/code/`
 - Enable the module by running `php bin/magento module:enable Nawarsoft_PokeGame`
 - Apply database updates by running `php bin/magento setup:upgrade`
+- Run dependency injection compiler  `php bin/magento setup:di:compile`
 - Flush the cache by running `php bin/magento cache:flush`
 
 
