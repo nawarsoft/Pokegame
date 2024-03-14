@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.details">
+            <block class="Nawarsoft\PokeGame\Block\PokemonDetails" name="product.pokemon.details" as="pokemon.details"
+                   template="Nawarsoft_PokeGame::product/view/pokemon_details.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Pokemon Details</argument>
+                    <argument name="sort_order" xsi:type="string">10</argument>
+                    <argument name="pokemon_details_view_model" xsi:type="object">Nawarsoft\PokeGame\ViewModel\GetPokemonDetails</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

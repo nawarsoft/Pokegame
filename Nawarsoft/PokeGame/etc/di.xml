@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Nawarsoft\PokeGame\Api\Model\ConfigRepositoryInterface"
+                type="Nawarsoft\PokeGame\Model\ConfigRepository"/>
+
+    <virtualType name="Nawarsoft\PokeGame\Logger" type="Monolog\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">pokegame</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Nawarsoft\PokeGame\LoggerHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Nawarsoft\PokeGame\LoggerHandler"
+                 type="Magento\Framework\Logger\Handler\Exception">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/pokegame.log</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Nawarsoft\PokeGame\Service\GetPokemonData">
+        <arguments>
+            <argument name="logger" xsi:type="object">Nawarsoft\PokeGame\Logger</argument>
+        </arguments>
+    </type>
+    <type name="Nawarsoft\PokeGame\Plugin\AddImagesToGalleryBlock">
+        <arguments>
+            <argument name="logger" xsi:type="object">Nawarsoft\PokeGame\Logger</argument>
+        </arguments>
+    </type>
+
+</config>

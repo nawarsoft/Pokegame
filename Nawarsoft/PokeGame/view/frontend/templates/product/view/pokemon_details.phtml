@@ -1,0 +1,16 @@
+<?php /** @var \Nawarsoft\PokeGame\Block\PokemonDetails $block */ ?>
+<?php if ($pokemonDetails = $block->getPokemonDetails()): ?>
+    <p>Pokemon name: <?= $pokemonDetails->getName()?></p>
+    <p>Height: <?= $pokemonDetails->getHeight()?></p>
+    <p>Weight: <?= $pokemonDetails->getWeight()?></p>
+    <p>Abilities:
+    <?php foreach ($pokemonDetails->getAbilities() as $ability): ?>
+        <?= $ability['ability']['name'] ?>
+    <?php endforeach ?>
+    </p>
+    <p>Types:
+    <?php foreach ($pokemonDetails->getTypes() as $type): ?>
+        <?= $type['type']['name'] ?>
+    <?php endforeach ?>
+    </p>
+<?php endif; ?>
